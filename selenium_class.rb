@@ -234,11 +234,17 @@ class SeleniumQAToolsForm
 
   def are_submit_params_equal_to? expected_params
     submit_params = check_submitted_url_parameters
+
+    if submit_params.length != expected_params.length
+      return false
+    end
+
     expected_params.each do |key, val|
       if val != submit_params[key]
         return false
       end
     end
+
     return true
   end
 
@@ -258,41 +264,7 @@ class SeleniumQAToolsForm
         params[val[0]].push val[1]
       end
     end
-
     return params
   end
 
 end
-
-# practice_form = SeleniumQAToolsForm.new
-# practice_form.visit_practice_form
-#
-# puts practice_form.check_partial_link_test
-#
-# puts practice_form.check_link_test
-#
-# practice_form.fill_in_first_name_field "Shiela"
-# puts practice_form.get_first_name_field_value
-#
-# practice_form.fill_in_last_name_field "Fortune"
-# puts practice_form.get_last_name_field_value
-#
-# puts practice_form.click_female_radio
-#
-# puts practice_form.click_five_years_radio
-#
-# puts "Date.today"
-# practice_form.fill_date_picker
-#
-# puts practice_form.click_tester_checkboxes
-#
-# puts practice_form.click_tool_checkboxes
-#
-# practice_form.click_australia_dropdown_option
-#
-# practice_form.click_wait_menu_option
-#
-# practice_form.click_submit_button
-#
-#
-# #

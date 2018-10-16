@@ -9,6 +9,7 @@ describe SeleniumQAToolsForm do
       "firstname" => "Sarah",
       "lastname" => "Fortune",
       "sex" => "Female",
+      "exp" => "5",
       "profession" => ["Manual+Tester","Automation+Tester"],
       "photo" => nil,
       "tool" => ["QTP","Selenium+IDE","Selenium+Webdriver"],
@@ -31,8 +32,8 @@ describe SeleniumQAToolsForm do
   end
 
   it "should accept a first name" do
-    @form.fill_in_first_name_field "Shiela"
-    expect(@form.get_first_name_field_value).to eq "Shiela"
+    @form.fill_in_first_name_field "Sarah"
+    expect(@form.get_first_name_field_value).to eq "Sarah"
   end
 
   it "should accept a last name" do
